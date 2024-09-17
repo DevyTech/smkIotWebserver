@@ -1,0 +1,55 @@
+<script>
+  let ip_esp = "http://192.168.1.79/"
+  function suhu() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", ip_esp+"kelembapan", true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var status = JSON.parse(xhr.responseText);
+          document.getElementById("temperature").innerText = status.temperature + "°C";
+          document.getElementById("kelembapan").innerText = status.humidity + "%";
+        }
+      };
+      xhr.send();
+    }
+  setInterval(suhu, 3000); // Fetch status every 3 second
+  
+  function jarak() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", ip_esp+"jarak", true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var status = xhr.responseText;
+          document.getElementById("jarak").innerText = status+" | CM";
+        }
+      };
+      xhr.send();
+    }
+  setInterval(jarak, 500); // Fetch status every 500 milisecond
+
+  function hujan() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", ip_esp+"hujan", true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var status = xhr.responseText;
+        document.getElementById("hujan").innerText = status;
+      }
+    };
+    xhr.send();
+  }
+  setInterval(hujan, 500); // Fetch status every 500 milisecond
+
+  function gas() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", ip_esp+"gas", true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var status = xhr.responseText;
+        document.getElementById("gas").innerText = status;
+      }
+    };
+    xhr.send();
+  }
+  setInterval(gas, 500); // Fetch status every 500 milisecond
+</script>
