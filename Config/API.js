@@ -30,7 +30,7 @@ if(state=="online"){
 function checkAndRunSensors(){
     if(esp_online){
         // suhu();
-        jarak();
+        // jarak();
         // hujan();
         // gas();
         // asap();
@@ -118,13 +118,13 @@ function togglePintu(){
 }
 function getPintuStatus(){
     $.ajax({
-        url: ip_esp + "get-led-status",
+        url: ip_esp + "servoPintuStatus",
         type: "GET",
         dataType: "json",
         success: function(response) {
             var status = response.ledState;
             $("#pintu").text(status);
-            $("#pintuToggle").prop("checked", (status === "Terbuka"));
+            $("#pintuToggle").prop("checked", (status === "Pintu Terbuka"));
         }
     });
 }
