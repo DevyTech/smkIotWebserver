@@ -128,7 +128,6 @@ function getPintuStatus(){
             $("#pintu").text(status);
             $("#pintuToggle").prop("checked", (status === "Pintu Terbuka"));
             console.log("Status : ",status);
-        },
-        error: function(error){console.log("Error Pintu Status : ",error)}
+        }
     });
 }
