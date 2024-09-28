@@ -102,7 +102,7 @@ session_start();
                     <i class="bi bi-microsoft"></i>
                     </div>
                     <div class="ps-3">
-                      <h6 id="pintu">Servo Terbuka</h6>
+                      <h6 id="pintu">Pintu Tertutup</h6>
                       <span class="text-success small pt-1 fw-bold">1%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
 
 

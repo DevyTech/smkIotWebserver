@@ -1,6 +1,8 @@
 var ip_esp = "http://stmiot.local/"
 var esp_online = false; // Variabel untuk melacak status ESP32
-
+document.addEventListener("DOMContentLoaded", function(){
+    getPintuStatus();
+});
 $(document).ready(function(){
     setInterval(isOnline, 500);
     setInterval(checkAndRunSensors, 500); // Menjalankan sensor hanya jika ESP32 online
@@ -29,11 +31,11 @@ if(state=="online"){
 
 function checkAndRunSensors(){
     if(esp_online){
-        suhu();
-        jarak();
-        hujan();
-        gas();
-        asap();
+        // suhu();
+        // jarak();
+        // hujan();
+        // gas();
+        // asap();
     }
 }
 
@@ -114,7 +116,7 @@ function togglePintu(){
         success: function(response){
             $("#pintu").text(response);
         }
-    })
+    });
 }
 function getPintuStatus(){
     $.ajax({
@@ -122,9 +124,11 @@ function getPintuStatus(){
         type: "GET",
         dataType: "json",
         success: function(response) {
-            var status = response.ledState;
+            var status = response.servoPintuState;
             $("#pintu").text(status);
             $("#pintuToggle").prop("checked", (status === "Pintu Terbuka"));
-        }
+            console.log("Status : ",status);
+        },
+        error: function(error){console.log("Error Pintu Status : ",error)}
     });
 }
