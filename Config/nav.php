@@ -135,6 +135,14 @@
         </a>
       </li><!-- End servo Nav -->
 
+
+      <li class="nav-item">
+        <a class="nav-link " href="../Admin/cam.php">
+        <i class="bi bi-camera"></i>
+          <span>Camera</span>
+        </a>
+      </li><!-- End cam Nav -->
+
     
 
       <?php } ?>
