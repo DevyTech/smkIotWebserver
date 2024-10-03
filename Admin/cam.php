@@ -66,7 +66,7 @@ session_start();
 
                     <div class="mt-3">
                         <!-- Video element to display camera stream -->
-                        <video id="cameraStream" width="480" height="320" autoplay playsinline></video>
+                        <video id="cameraStream" width="680" height="480" autoplay playsinline></video>
                         <!-- Button to trigger camera capture -->
                         <!-- <button class="btn btn-primary mt-3" id="captureBtn">Tangkap Gambar</button> -->
                         <!-- Image to display captured image -->
