@@ -33,8 +33,8 @@
   <link href="../assets/css/style.css" rel="stylesheet">
 
   <!-- JQuery -->
-  <script src="../Config/jquery.js"></script>
+  <script src=".../assets/js/jquery.js"></script>
   <!-- API -->
-  <script src="../Config/API.js"></script>
+  <script src="../assets/js/API.js"></script>
 
 </head>
