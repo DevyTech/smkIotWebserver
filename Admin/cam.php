@@ -59,14 +59,13 @@ session_start();
                         <i class="bi bi-camera-fill"></i>
                         </div>
                         <div class="ps-3">
-                        <h6 id="kamera-status">Kamera Siap</h6>
-                        <span class="text-muted small pt-2 ps-1">Tangkapan akan ditampilkan di bawah ini</span>
+                        <h6 id="kamera-status">Kamera Offline</h6>
                         </div>
                     </div>
 
                     <div class="mt-3">
                         <!-- Video element to display camera stream -->
-                        <video id="cameraStream" width="680" height="480" autoplay playsinline></video>
+                        <img id="cameraStream" width="680" height="480" src="http://camera.local:81/stream" crossorigin/>
                         <!-- Button to trigger camera capture -->
                         <!-- <button class="btn btn-primary mt-3" id="captureBtn">Tangkap Gambar</button> -->
                         <!-- Image to display captured image -->

@@ -1,32 +1,32 @@
 var ip_esp = "http://stmiot.local/"
 var esp_online = false; // Variabel untuk melacak status ESP32
 document.addEventListener("DOMContentLoaded", function(){
-    getPintuStatus();
+    // getPintuStatus();
 });
 $(document).ready(function(){
-    setInterval(isOnline, 500);
-    setInterval(checkAndRunSensors, 500); // Menjalankan sensor hanya jika ESP32 online
+    // setInterval(isOnline, 500);
+    // setInterval(checkAndRunSensors, 500); // Menjalankan sensor hanya jika ESP32 online
 });
 
 var state;
 function isOnline(){
-$.ajax({
-    url: ip_esp,
-    type: "GET",
-    success: function(response){
-        state = response;
-    },
-    error: function(){
-        state = "offline";
+    $.ajax({
+        url: ip_esp,
+        type: "GET",
+        success: function(response){
+            state = response;
+        },
+        error: function(){
+            state = "offline";
+        }
+    })
+    if(state=="online"){
+        $("#ESP32_Status").text("Online").toggleClass('text-success');
+        esp_online = true;
+    }else{
+        $("#ESP32_Status").text("Offline").toggleClass('text-danger');
+        esp_online = false;
     }
-})
-if(state=="online"){
-    $("#ESP32_Status").text("Online").toggleClass('text-success');
-    esp_online = true;
-}else{
-    $("#ESP32_Status").text("Offline").toggleClass('text-danger');
-    esp_online = false;
-}
 }
 
 function checkAndRunSensors(){
