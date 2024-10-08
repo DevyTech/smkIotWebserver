@@ -37,7 +37,7 @@ session_start();
 
 
             <!-- Card Camera -->
-            <div class="col-xxl-12 col-xl-12">
+            <div class="col-xxl-8 col-xl-12">
                 <div class="card info-card revenue-card">
                     <div class="filter">
                     <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -52,22 +52,21 @@ session_start();
                     </div>
 
                     <div class="card-body">
-                    <h5 class="card-title">Kamera Tangkapan</h5>
+                    <h5 class="card-title">ESP32 Cam</h5>
 
                     <div class="d-flex align-items-center">
                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                        <i class="bi bi-camera-fill"></i>
+                          <i class="bi bi-camera-fill"></i>
                         </div>
                         <div class="ps-3">
-                        <h6 id="kamera-status">Kamera Offline</h6>
+                          <!-- Button to trigger camera capture -->
+                          <button class="btn btn-primary mt-3" id="streamBtn">Start Stream</button>
                         </div>
                     </div>
 
                     <div class="mt-3">
                         <!-- Video element to display camera stream -->
-                        <img id="cameraStream" width="680" height="480" src="http://camera.local:81/stream" crossorigin/>
-                        <!-- Button to trigger camera capture -->
-                        <!-- <button class="btn btn-primary mt-3" id="captureBtn">Tangkap Gambar</button> -->
+                        <img id="cameraStream" width="800" height="600" src="../assets/img/camera-video-off.svg" crossorigin/>
                         <!-- Image to display captured image -->
                         <!-- <img id="capturedImage" class="img-fluid mt-3" style="display: none;" /> -->
                     </div>

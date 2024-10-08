@@ -1,19 +1,18 @@
-// var ip_cam = "http://camera.local:81/stream"; // Mengarahkan ke stream ESP32
-// $(document).ready(function(){
-//   setInterval(isOnline, 500);
-// });
-// function isOnline() {
-//   $.ajax({
-//     url: ip_cam,
-//     type: "GET",
-//     success: function(response){
-//       $("#kamera-status").text("Kamera Online");
-//     },
-//     error: function(){
-//       $("#kamera-status").text("Kamera Offline");
-//     }
-//   });
-// }
+var ip_cam = "http://camera.local:81/stream"; // Mengarahkan ke stream ESP32
+var streaming = false
+$("#streamBtn").click(function () {
+  if (streaming) {
+    // Jika streaming sedang aktif, stop stream dengan mengosongkan 'src' video
+    $("#cameraStream").attr("src","../assets/img/camera-video-off.svg");
+    $("#streamBtn").text("Start Stream"); // Ubah teks tombol menjadi 'Start'
+    streaming = false; // Set flag menjadi false
+  } else {
+    // Jika streaming belum aktif, mulai stream
+    $("#cameraStream").attr("src", ip_cam);
+    $("#streamBtn").text("Stop Stream"); // Ubah teks tombol menjadi 'Stop'
+    streaming = true; // Set flag menjadi true
+  }
+});
 
   // const video = document.getElementById('cameraStream');
   // const captureBtn = document.getElementById('captureBtn');

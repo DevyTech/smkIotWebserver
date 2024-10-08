@@ -39,7 +39,8 @@ h6 {
 }
 
 #cameraStream{
-  border: 1px solid red;
+  border: 1px solid grey;
+  border-radius: 10px;
 }
 /*--------------------------------------------------------------
 # Main

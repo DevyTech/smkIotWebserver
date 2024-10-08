@@ -388,15 +388,15 @@ session_start();
   //   }
   //   setInterval(fetchLEDStatus, 1000); // Fetch status every second
   function toggleLED() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", ip_esp+"toggle-led", true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          var status = xhr.responseText;
-          document.getElementById("LEDTeras").innerText = status;
-        }
-      };
-    xhr.send();
+    // var xhr = new XMLHttpRequest();
+    // xhr.open("GET", ip_esp+"toggle-led", true);
+    // xhr.onreadystatechange = function() {
+    //     if (xhr.readyState == 4 && xhr.status == 200) {
+    //       var status = xhr.responseText;
+    //       document.getElementById("LEDTeras").innerText = status;
+    //     }
+    //   };
+    // xhr.send();
   }
   function getLEDStatus() {
       var xhr = new XMLHttpRequest();

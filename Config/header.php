@@ -36,5 +36,7 @@
   <script src="../assets/js/jquery.js"></script>
   <!-- API -->
   <script src="../assets/js/API.js"></script>
+  <!-- CAM -->
+  <script src="../assets/js/cam.js"></script>
 
 </head>
