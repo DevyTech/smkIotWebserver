@@ -61,7 +61,7 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED()">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('teras')">
                         <label id="LEDTeras"class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
                       </div>
 
@@ -102,7 +102,7 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('tengah')">
                         <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
                       </div>
 
@@ -143,7 +143,7 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('kamar')">
                         <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
                       </div>
 
@@ -184,7 +184,7 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('kamar2')">
                         <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
                       </div>
 
@@ -225,7 +225,7 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('dapur')">
                         <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
                       </div>
 
@@ -268,7 +268,7 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('garasi')">
                         <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
                       </div>
 

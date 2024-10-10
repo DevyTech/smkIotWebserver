@@ -1,8 +1,8 @@
-let ip_esp = "http://stmiot.local:8080/"
-let esp_online = false; // Variabel untuk melacak status ESP32
+var ip_esp = "http://stmiot.local:8080/"
+var esp_online = false; // Variabel untuk melacak status ESP32
 
 document.addEventListener("DOMContentLoaded", function(){
-    // getLEDStatus();
+    getLEDStatus();
     // getPintuStatus();
 });
 $(document).ready(function(){
@@ -10,7 +10,7 @@ $(document).ready(function(){
     // setInterval(checkAndRunSensors, 500); // Menjalankan sensor hanya jika ESP32 online
 });
 
-let state;
+var state;
 function isOnline(){
     $.ajax({
         url: ip_esp,
@@ -118,28 +118,51 @@ function asap(){
 // L    E   D   -   F   U   N   C   T   I   O   N
 // ====================================================================
 
-  function toggleLED() {
-
+$("#LEDTerasSwitch").change(function(){
+    console.log(1)
+  });
+  function toggleLED(toggleId) {
+    $.ajax({
+        url: ip_esp+"toggle-led?led="+toggleId,
+        type: "GET",
+        success: function(response){
+            $("#LEDTeras").text(response);
+        },
+        error: function(e){
+            console.error(e);
+        }
+    });
   }
   function getLEDStatus() {
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", ip_led+"get-led-status", true);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          var response = JSON.parse(xhr.responseText);
-          var status = response.ledState;
-          document.getElementById("LEDTeras").innerText = status;
-          document.getElementById("flexSwitchCheckDefault").checked = (status === "ON");
+    $.ajax({
+        url: ip_esp + "get-led-status",
+        type: "GET",
+        dataType: "json",
+        success: function(response) {
+            var status = response.stateTeras;
+            $("#LEDTeras").text(status);
+            $("#flexSwitchCheckDefault").prop("checked", (status === "Pintu Terbuka"));
+            console.log("Status : ",status);
         }
-      };
-      xhr.send();
+    });
+    //   var xhr = new XMLHttpRequest();
+    //   xhr.open("GET", ip_led+"get-led-status", true);
+    //   xhr.onreadystatechange = function() {
+    //     if (xhr.readyState == 4 && xhr.status == 200) {
+    //       var response = JSON.parse(xhr.responseText);
+    //       var status = response.ledState;
+    //       document.getElementById("LEDTeras").innerText = status;
+    //       document.getElementById("flexSwitchCheckDefault").checked = (status === "ON");
+    //     }
+    //   };
+    //   xhr.send();
     }
 
 // ====================================================================
 // S    E   R   V   O   -   F   U   N   C   T   I   O   N
 // ====================================================================
-
 function togglePintu(){
+    console.log(1)
     $.ajax({
         url: ip_esp+"servoPintu",
         type: "GET",
