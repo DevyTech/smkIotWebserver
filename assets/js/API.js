@@ -1,6 +1,8 @@
 let ip_esp = "http://stmiot.local:8080/"
 let esp_online = false; // Variabel untuk melacak status ESP32
+
 document.addEventListener("DOMContentLoaded", function(){
+    getLEDStatus();
     getPintuStatus();
 });
 $(document).ready(function(){
@@ -39,6 +41,9 @@ function checkAndRunSensors(){
     }
 }
 
+// ====================================================================
+// S    E   N   S   O   R   -   F   U   N   C   T   I   O   N
+// ====================================================================
 function suhu(){
 $.ajax({
     url: ip_esp+"kelembapan",
@@ -108,6 +113,51 @@ function asap(){
         }
     });
     }
+
+// ====================================================================
+// L    E   D   -   F   U   N   C   T   I   O   N
+// ====================================================================
+
+// function fetchLEDStatus() {
+  //     var xhr = new XMLHttpRequest();
+  //     xhr.open("GET", "http://192.168.1.7/led-status", true);
+  //     xhr.onreadystatechange = function() {
+  //       if (xhr.readyState == 4 && xhr.status == 200) {
+  //         var status = xhr.responseText;
+  //         document.getElementById("LEDTeras").innerText = status;
+  //       }
+  //     };
+  //     xhr.send();
+  //   }
+  //   setInterval(fetchLEDStatus, 1000); // Fetch status every second
+  function toggleLED() {
+    // var xhr = new XMLHttpRequest();
+    // xhr.open("GET", ip_led+"toggle-led", true);
+    // xhr.onreadystatechange = function() {
+    //     if (xhr.readyState == 4 && xhr.status == 200) {
+    //       var status = xhr.responseText;
+    //       document.getElementById("LEDTeras").innerText = status;
+    //     }
+    //   };
+    // xhr.send();
+  }
+  function getLEDStatus() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", ip_led+"get-led-status", true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var response = JSON.parse(xhr.responseText);
+          var status = response.ledState;
+          document.getElementById("LEDTeras").innerText = status;
+          document.getElementById("flexSwitchCheckDefault").checked = (status === "ON");
+        }
+      };
+      xhr.send();
+    }
+
+// ====================================================================
+// S    E   R   V   O   -   F   U   N   C   T   I   O   N
+// ====================================================================
 
 function togglePintu(){
     $.ajax({
