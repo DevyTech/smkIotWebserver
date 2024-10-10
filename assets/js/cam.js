@@ -1,5 +1,5 @@
-var ip_cam = "http://camera.local:81/stream"; // Mengarahkan ke stream ESP32
-var streaming = false
+let ip_cam = "http://camera.local:81/stream"; // Mengarahkan ke stream ESP32
+let streaming = false
 $("#streamBtn").click(function () {
   if (streaming) {
     // Jika streaming sedang aktif, stop stream dengan mengosongkan 'src' video
