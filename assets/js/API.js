@@ -1,11 +1,11 @@
-var ip_esp = "http://stmiot.local/"
+var ip_esp = "http://stmiot.local:8080/"
 var esp_online = false; // Variabel untuk melacak status ESP32
 document.addEventListener("DOMContentLoaded", function(){
-    // getPintuStatus();
+    getPintuStatus();
 });
 $(document).ready(function(){
-    // setInterval(isOnline, 500);
-    // setInterval(checkAndRunSensors, 500); // Menjalankan sensor hanya jika ESP32 online
+    setInterval(isOnline, 500);
+    setInterval(checkAndRunSensors, 500); // Menjalankan sensor hanya jika ESP32 online
 });
 
 var state;
