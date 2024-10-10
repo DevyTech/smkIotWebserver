@@ -371,7 +371,7 @@ session_start();
 </body>
 
 <script>
-  let ip_esp = "http://192.168.1.79/"
+  let ip_led = "http://192.168.1.79/"
   document.addEventListener("DOMContentLoaded", function() {
       getLEDStatus();
     });
@@ -389,7 +389,7 @@ session_start();
   //   setInterval(fetchLEDStatus, 1000); // Fetch status every second
   function toggleLED() {
     // var xhr = new XMLHttpRequest();
-    // xhr.open("GET", ip_esp+"toggle-led", true);
+    // xhr.open("GET", ip_led+"toggle-led", true);
     // xhr.onreadystatechange = function() {
     //     if (xhr.readyState == 4 && xhr.status == 200) {
     //       var status = xhr.responseText;
@@ -400,7 +400,7 @@ session_start();
   }
   function getLEDStatus() {
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", ip_esp+"get-led-status", true);
+      xhr.open("GET", ip_led+"get-led-status", true);
       xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
           var response = JSON.parse(xhr.responseText);
