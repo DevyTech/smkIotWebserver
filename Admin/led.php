@@ -61,8 +61,8 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('teras')">
-                        <label id="LEDTeras"class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="LEDSwitchTeras" onclick="toggleLED('teras')">
+                        <label id="LEDTeras"class="form-check-label" for="LEDSwitchTeras">OFF</label>
                       </div>
 
                     </div>
@@ -143,8 +143,8 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('kamar')">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="LEDSwitchKamar" onclick="toggleLED('kamar')">
+                        <label id="LEDKamar" class="form-check-label" for="LEDSwitchKamar">OFF</label>
                       </div>
 
                     </div>
@@ -225,8 +225,8 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('dapur')">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="LEDSwitchDapur" onclick="toggleLED('dapur')">
+                        <label id="LEDDapur" class="form-check-label" for="LEDSwitchDapur">OFF</label>
                       </div>
 
                     </div>

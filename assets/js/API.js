@@ -118,45 +118,50 @@ function asap(){
 // L    E   D   -   F   U   N   C   T   I   O   N
 // ====================================================================
 
-$("#LEDTerasSwitch").change(function(){
-    console.log(1)
-  });
-  function toggleLED(toggleId) {
+function toggleLED(toggleId) {
     $.ajax({
         url: ip_esp+"toggle-led?led="+toggleId,
         type: "GET",
         success: function(response){
-            $("#LEDTeras").text(response);
+            if (toggleId=="teras") {
+                $("#LEDTeras").text(response);
+            }else if (toggleId=="kamar") {
+                $("#LEDKamar").text(response);
+            }else{
+                $("#LEDDapur").text(response);
+            }
         },
         error: function(e){
             console.error(e);
         }
     });
-  }
-  function getLEDStatus() {
+}
+function getLEDStatus() {
     $.ajax({
         url: ip_esp + "get-led-status",
         type: "GET",
         dataType: "json",
         success: function(response) {
-            var status = response.stateTeras;
-            $("#LEDTeras").text(status);
-            $("#flexSwitchCheckDefault").prop("checked", (status === "Pintu Terbuka"));
-            console.log("Status : ",status);
+            // Update Teras LED Status
+            var statusTeras = response.stateTeras;
+            $("#LEDTeras").text(statusTeras);
+            $("#LEDSwitchTeras").prop("checked", (statusTeras === "ON"));
+            console.log("Status LED Teras: ",statusTeras);
+
+            // Update Kamar LED Status
+            var statusKamar = response.stateKamar;
+            $("#LEDKamar").text(statusKamar);
+            $("#LEDSwitchKamar").prop("checked", (statusKamar === "ON"));
+            console.log("Status LED Kamar: ",statusKamar);
+
+            // Update Dapur LED Status
+            var statusDapur = response.stateDapur;
+            $("#LEDDapur").text(statusDapur);
+            $("#LEDSwitchDapur").prop("checked", (statusDapur === "ON"));
+            console.log("Status LED Dapur: ",statusDapur);
         }
     });
-    //   var xhr = new XMLHttpRequest();
-    //   xhr.open("GET", ip_led+"get-led-status", true);
-    //   xhr.onreadystatechange = function() {
-    //     if (xhr.readyState == 4 && xhr.status == 200) {
-    //       var response = JSON.parse(xhr.responseText);
-    //       var status = response.ledState;
-    //       document.getElementById("LEDTeras").innerText = status;
-    //       document.getElementById("flexSwitchCheckDefault").checked = (status === "ON");
-    //     }
-    //   };
-    //   xhr.send();
-    }
+}
 
 // ====================================================================
 // S    E   R   V   O   -   F   U   N   C   T   I   O   N
