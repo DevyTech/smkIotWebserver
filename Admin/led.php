@@ -61,8 +61,8 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED()">
-                        <label id="LEDTeras"class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="LEDSwitchTeras" onclick="toggleLED('teras')">
+                        <label id="LEDTeras"class="form-check-label" for="LEDSwitchTeras">OFF</label>
                       </div>
 
                     </div>
@@ -102,7 +102,7 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('tengah')">
                         <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
                       </div>
 
@@ -143,8 +143,8 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="LEDSwitchKamar" onclick="toggleLED('kamar')">
+                        <label id="LEDKamar" class="form-check-label" for="LEDSwitchKamar">OFF</label>
                       </div>
 
                     </div>
@@ -184,7 +184,7 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('kamar2')">
                         <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
                       </div>
 
@@ -225,8 +225,8 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="LEDSwitchDapur" onclick="toggleLED('dapur')">
+                        <label id="LEDDapur" class="form-check-label" for="LEDSwitchDapur">OFF</label>
                       </div>
 
                     </div>
@@ -268,7 +268,7 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('garasi')">
                         <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
                       </div>
 
@@ -367,49 +367,5 @@ session_start();
     // Untuk koneksi ke Database
 	  include '../Config/footer.php';
   ?>
-
 </body>
-
-<script>
-  let ip_esp = "http://192.168.1.79/"
-  document.addEventListener("DOMContentLoaded", function() {
-      getLEDStatus();
-    });
-  // function fetchLEDStatus() {
-  //     var xhr = new XMLHttpRequest();
-  //     xhr.open("GET", "http://192.168.1.7/led-status", true);
-  //     xhr.onreadystatechange = function() {
-  //       if (xhr.readyState == 4 && xhr.status == 200) {
-  //         var status = xhr.responseText;
-  //         document.getElementById("LEDTeras").innerText = status;
-  //       }
-  //     };
-  //     xhr.send();
-  //   }
-  //   setInterval(fetchLEDStatus, 1000); // Fetch status every second
-  function toggleLED() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", ip_esp+"toggle-led", true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          var status = xhr.responseText;
-          document.getElementById("LEDTeras").innerText = status;
-        }
-      };
-    xhr.send();
-  }
-  function getLEDStatus() {
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", ip_esp+"get-led-status", true);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          var response = JSON.parse(xhr.responseText);
-          var status = response.ledState;
-          document.getElementById("LEDTeras").innerText = status;
-          document.getElementById("flexSwitchCheckDefault").checked = (status === "ON");
-        }
-      };
-      xhr.send();
-    }
-</script>
 </html>

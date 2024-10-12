@@ -38,6 +38,10 @@ h6 {
   font-family: "Nunito", sans-serif;
 }
 
+#cameraStream{
+  border: 1px solid grey;
+  border-radius: 10px;
+}
 /*--------------------------------------------------------------
 # Main
 --------------------------------------------------------------*/
