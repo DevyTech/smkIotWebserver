@@ -102,8 +102,8 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('tengah')">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="LEDSwitchTengah" onclick="toggleLED('tengah')">
+                        <label id="LEDTengah" class="form-check-label" for="LEDSwitchTengah">OFF</label>
                       </div>
 
                     </div>
@@ -143,8 +143,8 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="LEDSwitchKamar" onclick="toggleLED('kamar')">
-                        <label id="LEDKamar" class="form-check-label" for="LEDSwitchKamar">OFF</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="LEDSwitchKamar1" onclick="toggleLED('kamar1')">
+                        <label id="LEDKamar1" class="form-check-label" for="LEDSwitchKamar1">OFF</label>
                       </div>
 
                     </div>
@@ -184,8 +184,8 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('kamar2')">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="LEDSwitchKamar2" onclick="toggleLED('kamar2')">
+                        <label id="LEDKamar2" class="form-check-label" for="LEDSwitchKamar2">OFF</label>
                       </div>
 
                     </div>
@@ -268,8 +268,8 @@ session_start();
                     <div class="ps-3">
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onclick="toggleLED('garasi')">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">OFF</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="LEDSwitchGarasi" onclick="toggleLED('garasi')">
+                        <label id="LEDGarasi" class="form-check-label" for="LEDSwitchGarasi">OFF</label>
                       </div>
 
                     </div>
