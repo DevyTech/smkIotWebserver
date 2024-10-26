@@ -3,11 +3,11 @@ var esp_online = false; // Variabel untuk melacak status ESP32
 
 document.addEventListener("DOMContentLoaded", function(){
     getLEDStatus();
-    // getPintuStatus();
+    getPintuStatus();
 });
 $(document).ready(function(){
-    // setInterval(isOnline, 500);
-    // setInterval(checkAndRunSensors, 500); // Menjalankan sensor hanya jika ESP32 online
+    setInterval(isOnline, 500);
+    setInterval(checkAndRunSensors, 500); // Menjalankan sensor hanya jika ESP32 online
 });
 
 var state;
@@ -33,11 +33,11 @@ function isOnline(){
 
 function checkAndRunSensors(){
     if(esp_online){
-        // suhu();
-        // jarak();
-        // hujan();
-        // gas();
-        // asap();
+        suhu();
+        jarak();
+        hujan();
+        gas();
+        asap();
     }
 }
 
@@ -125,10 +125,16 @@ function toggleLED(toggleId) {
         success: function(response){
             if (toggleId=="teras") {
                 $("#LEDTeras").text(response);
-            }else if (toggleId=="kamar") {
-                $("#LEDKamar").text(response);
-            }else{
+            }else if (toggleId=="tengah") {
+                $("#LEDTengah").text(response);
+            }else if (toggleId=="kamar1") {
+                $("#LEDKamar1").text(response);
+            }else if (toggleId=="kamar2") {
+                $("#LEDKamar2").text(response);
+            }else if (toggleId=="dapur") {
                 $("#LEDDapur").text(response);
+            }else{
+                $("#LEDGarasi").text(response);
             }
         },
         error: function(e){
@@ -148,17 +154,34 @@ function getLEDStatus() {
             $("#LEDSwitchTeras").prop("checked", (statusTeras === "ON"));
             console.log("Status LED Teras: ",statusTeras);
 
+            // Update Tengah LED Status
+            var statusTengah = response.stateTengah;
+            $("#LEDTengah").text(statusTengah);
+            $("#LEDSwitchTengah").prop("checked", (statusTengah === "ON"));
+            console.log("Status LED Tengah: ",statusTengah);
+
             // Update Kamar LED Status
-            var statusKamar = response.stateKamar;
-            $("#LEDKamar").text(statusKamar);
-            $("#LEDSwitchKamar").prop("checked", (statusKamar === "ON"));
-            console.log("Status LED Kamar: ",statusKamar);
+            var statusKamar1 = response.stateKamar1;
+            $("#LEDKamar1").text(statusKamar1);
+            $("#LEDSwitchKamar1").prop("checked", (statusKamar1 === "ON"));
+            console.log("Status LED Kamar 1: ",statusKamar1);
+
+            var statusKamar2 = response.stateKamar2;
+            $("#LEDKamar2").text(statusKamar2);
+            $("#LEDSwitchKamar2").prop("checked", (statusKamar2 === "ON"));
+            console.log("Status LED Kamar 2: ",statusKamar2);
 
             // Update Dapur LED Status
             var statusDapur = response.stateDapur;
             $("#LEDDapur").text(statusDapur);
             $("#LEDSwitchDapur").prop("checked", (statusDapur === "ON"));
             console.log("Status LED Dapur: ",statusDapur);
+
+            // Update Garasi LED Status
+            var statusGarasi = response.stateGarasi;
+            $("#LEDGarasi").text(statusGarasi);
+            $("#LEDSwitchGarasi").prop("checked", (statusGarasi === "ON"));
+            console.log("Status LED Garasi: ",statusGarasi);
         }
     });
 }
