@@ -229,7 +229,7 @@ function getPintuStatus(){
         type: "GET",
         dataType: "json",
         success: function(response) {
-            var status = response.servoPintuState;
+            var status = response.servoJendelaState;
             $("#jendela").text(status);
             $("#jendelaToggle").prop("checked", (status === "Jendela Terbuka"));
             console.log("Status : ",status);
