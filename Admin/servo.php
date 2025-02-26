@@ -115,7 +115,7 @@ session_start();
 
 
                       <div class="form-check form-switch" style="font-size: 25px;">
-                        <input class="form-check-input" type="checkbox" role="switch" id="pintuToggle" onclick="toggleJendela()">
+                        <input class="form-check-input" type="checkbox" role="switch" id="jendelaToggle" onclick="toggleJendela()">
                       </div>
 
 

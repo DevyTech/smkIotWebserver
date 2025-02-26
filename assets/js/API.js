@@ -212,3 +212,27 @@ function getPintuStatus(){
         }
     });
 }
+
+function toggleJendela(){
+    console.log(1)
+    $.ajax({
+        url: ip_esp+"servoJendela",
+        type: "GET",
+        success: function(response){
+            $("#jendela").text(response);
+        }
+    });
+}
+function getPintuStatus(){
+    $.ajax({
+        url: ip_esp + "servoJendelaStatus",
+        type: "GET",
+        dataType: "json",
+        success: function(response) {
+            var status = response.servoPintuState;
+            $("#jendela").text(status);
+            $("#jendelaToggle").prop("checked", (status === "Jendela Terbuka"));
+            console.log("Status : ",status);
+        }
+    });
+}
