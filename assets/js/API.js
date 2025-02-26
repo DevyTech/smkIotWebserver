@@ -4,6 +4,7 @@ var esp_online = false; // Variabel untuk melacak status ESP32
 document.addEventListener("DOMContentLoaded", function(){
     getLEDStatus();
     getPintuStatus();
+    getJendelaStatus();
 });
 $(document).ready(function(){
     setInterval(isOnline, 500);
@@ -33,11 +34,11 @@ function isOnline(){
 
 function checkAndRunSensors(){
     if(esp_online){
-        suhu();
-        jarak();
-        hujan();
-        gas();
-        asap();
+        // suhu();
+        // jarak();
+        // hujan();
+        // gas();
+        // asap();
     }
 }
 
@@ -223,7 +224,7 @@ function toggleJendela(){
         }
     });
 }
-function getPintuStatus(){
+function getJendelaStatus(){
     $.ajax({
         url: ip_esp + "servoJendelaStatus",
         type: "GET",
