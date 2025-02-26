@@ -4,6 +4,7 @@ var esp_online = false; // Variabel untuk melacak status ESP32
 document.addEventListener("DOMContentLoaded", function(){
     getLEDStatus();
     getPintuStatus();
+    getJendelaStatus();
 });
 $(document).ready(function(){
     setInterval(isOnline, 500);
@@ -208,7 +209,31 @@ function getPintuStatus(){
             var status = response.servoPintuState;
             $("#pintu").text(status);
             $("#pintuToggle").prop("checked", (status === "Pintu Terbuka"));
-            console.log("Status : ",status);
+            console.log("Status Pintu: ",status);
+        }
+    });
+}
+
+function toggleJendela(){
+    console.log(1)
+    $.ajax({
+        url: ip_esp+"servoJendela",
+        type: "GET",
+        success: function(response){
+            $("#jendela").text(response);
+        }
+    });
+}
+function getJendelaStatus(){
+    $.ajax({
+        url: ip_esp + "servoJendelaStatus",
+        type: "GET",
+        dataType: "json",
+        success: function(response) {
+            var status = response.servoJendelaState;
+            $("#jendela").text(status);
+            $("#jendelaToggle").prop("checked", (status === "Jendela Terbuka"));
+            console.log("Status Jendela: ",status);
         }
     });
 }
