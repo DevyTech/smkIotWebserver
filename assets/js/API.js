@@ -209,7 +209,7 @@ function getPintuStatus(){
             var status = response.servoPintuState;
             $("#pintu").text(status);
             $("#pintuToggle").prop("checked", (status === "Pintu Terbuka"));
-            console.log("Status : ",status);
+            console.log("Status Pintu: ",status);
         }
     });
 }
@@ -233,7 +233,7 @@ function getJendelaStatus(){
             var status = response.servoJendelaState;
             $("#jendela").text(status);
             $("#jendelaToggle").prop("checked", (status === "Jendela Terbuka"));
-            console.log("Status : ",status);
+            console.log("Status Jendela: ",status);
         }
     });
 }
