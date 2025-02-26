@@ -34,11 +34,11 @@ function isOnline(){
 
 function checkAndRunSensors(){
     if(esp_online){
-        // suhu();
-        // jarak();
-        // hujan();
-        // gas();
-        // asap();
+        suhu();
+        jarak();
+        hujan();
+        gas();
+        asap();
     }
 }
 
